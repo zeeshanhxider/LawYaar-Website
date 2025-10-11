@@ -24,6 +24,7 @@ export default {
       fontFamily: {
         general: ["GeneralSans-Variable", "sans-serif"],
         grotesk: ["CabinetGrotesk-Variable", "sans-serif"],
+        serif: ["DMSerifText-Regular", "serif"],
         urdu: ["NotoSansArabic_Condensed-Medium", "sans-serif"],
       },
       colors: {

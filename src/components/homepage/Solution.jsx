@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import Heading from "../ui/Heading";
 import { Icon } from "@iconify/react";
 
-export default function About() {
+export default function Solution() {
   const aboutSection = useRef(null);
   const heading = useRef(null);
   const body = useRef(null);

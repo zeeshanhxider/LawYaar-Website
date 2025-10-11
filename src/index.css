@@ -40,6 +40,14 @@
   }
 
   @font-face {
+    font-family: "DMSerifText-Regular";
+    src: url("./assets/fonts/DMSerifText-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
     font-family: "NotoSansArabic_Condensed-Medium";
     src: url("./assets/fonts/NotoSansArabic_Condensed-Medium.ttf")
       format("truetype");
@@ -63,7 +71,7 @@
   h2,
   h3,
   h4 {
-    @apply font-general tracking-headings;
+    @apply font-serif tracking-headings;
   }
 
   .font-outline-4 {

@@ -1,4 +1,4 @@
-export default function Role({ forwardedRef }) {
+export default function Problem({ forwardedRef }) {
   return (
     <section
       ref={forwardedRef}

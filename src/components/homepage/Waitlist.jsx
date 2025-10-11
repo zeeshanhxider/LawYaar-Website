@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
 import Heading from "../ui/Heading";
 
-export default function Contact() {
+export default function Waitlist() {
   const [form, setForm] = useState({ name: "", whatsapp: "" });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);

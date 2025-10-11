@@ -5,18 +5,17 @@ import { useEffect, useRef } from "react";
 
 import NavBar from "./components/ui/NavBar";
 import Hero from "./components/homepage/Hero";
-import Role from "./components/homepage/Role";
-import About from "./components/homepage/About";
-import Services from "./components/homepage/Services";
-import Works from "./components/homepage/Works";
-import Contact from "./components/homepage/Contact";
+import Problem from "./components/homepage/Problem";
+import Solution from "./components/homepage/Solution";
+import Impact from "./components/homepage/Impact";
+import Pricing from "./components/homepage/Pricing";
+import Waitlist from "./components/homepage/Waitlist";
 import Footer from "./components/ui/Footer";
 
 const App = () => {
- 
   gsap.registerPlugin(ScrollTrigger);
 
-  const sectionRefs = useRef([]); 
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
     const sectionHeadings = document.querySelectorAll(".section-heading");
@@ -35,14 +34,11 @@ const App = () => {
             duration: 1,
           }),
           toggleActions: "play none none none",
-
         });
-        ScrollTrigger.refresh()
+        ScrollTrigger.refresh();
       });
     });
   }, []);
-
-  
 
   return (
     <div className="bg-secondary-100">
@@ -50,12 +46,12 @@ const App = () => {
       {/* passing sectionRefs props to give access to Navbar, Navbar can then access the props which have access to the array of sectionRef and loop over it */}
       <Hero />
       <main className="px-5 md:px-10 xl:px-20 2xl:px-28">
-        <Role forwardedRef={(el) => (sectionRefs.current[0] = el)} />{" "}
+        <Problem forwardedRef={(el) => (sectionRefs.current[0] = el)} />{" "}
         {/* forwardedRef props to pass into the child component to access the ref, then this will go into the useRef array  */}
-        <About />
-        <Services />
-        <Works forwardedRef={(el) => (sectionRefs.current[1] = el)} />
-        <Contact />
+        <Solution />
+        <Impact />
+        <Pricing forwardedRef={(el) => (sectionRefs.current[1] = el)} />
+        <Waitlist />
       </main>
       <Footer />
     </div>

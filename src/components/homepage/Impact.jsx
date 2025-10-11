@@ -1,7 +1,7 @@
 import ServiceUi from "../ui/ServiceUi";
 import Heading from "../ui/Heading";
 
-export default function Services() {
+export default function Impact() {
   const impactStats = ["Accessible", "Affordable", "Verified", "Multilingual"];
 
   const audienceItems = [
