@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* *{
+    border: 1px solid red;
+  } */
+
+  ::-moz-selection {
+    background: #5e862b;
+  }
+  ::-webkit-selection {
+    background: #5e862b;
+  }
+  ::selection {
+    background: #5e862b;
+  }
+
+  .text-smooth {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @font-face {
+    font-family: "CabinetGrotesk-Variable";
+    src: url("./assets/fonts/CabinetGrotesk-Variable.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "GeneralSans-Variable";
+    src: url("./assets/fonts/GeneralSans-Variable.ttf") format("truetype");
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "NotoSansArabic_Condensed-Medium";
+    src: url("./assets/fonts/NotoSansArabic_Condensed-Medium.ttf")
+      format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @media (min-width: 768px) {
+    * {
+      cursor: none;
+    }
+  }
+  a,
+  p,
+  span {
+    @apply font-grotesk;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-general tracking-headings;
+  }
+
+  .font-outline-4 {
+    -webkit-text-stroke: 5px #5e862b;
+  }
+
+  .font-outline-3 {
+    -webkit-text-stroke: 4px #5e862b;
+  }
+
+  .font-outline-2 {
+    -webkit-text-stroke: 2px #5e862b;
+  }
+}
+
+@layer components {
+  .button {
+    @apply rounded-full bg-accent-300 px-8 py-3 text-primary-200;
+  }
+}
+
+@layer utilities {
+  .title {
+    clip-path: polygon(0 0, 200% 0, 100% 100%, 0% 100%);
+    line-height: clamp(6rem, 16vw, 10rem);
+  }
+
+  nav a:hover ~ .cursor {
+    transform: scale(5);
+    opacity: 0;
+  }
+
+  .section-heading {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+}
+
+.hamburger-sync * {
+  color: inherit !important;
+  transition-property: transform, opacity !important;
+}
