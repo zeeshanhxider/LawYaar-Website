@@ -25,60 +25,55 @@ export default function Pricing({ forwardedRef }) {
 
   const pricingPlans = [
     {
-      name: "Free",
-      price: "PKR 0",
-      period: "/month",
-      description: "Get started with legal clarity",
-      features: [
-        "5 questions per month",
-        "Text-based answers",
-        "Basic legal guidance",
-        "English & Urdu support",
-      ],
-      highlighted: false,
-    },
-    {
-      name: "Standard",
-      price: "PKR 499",
-      period: "/month",
-      description: "For regular legal assistance",
-      features: [
-        "Unlimited questions",
-        "Voice replies included",
-        "Priority response time",
-        "Detailed case citations",
-        "English & Urdu support",
-      ],
-      highlighted: true,
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "For NGOs & law firms",
-      features: [
-        "Bulk query support",
-        "Custom integrations",
-        "Dedicated support team",
-        "Advanced analytics",
-        "Training & onboarding",
-      ],
-      highlighted: false,
-    },
+  name: "Starter",
+  price: "PKR 0",
+  period: "/month",
+  description: "Try LawYaar for free",
+  features: [
+    "3 legal queries per month",
+    "Voice & text replies included",
+    "Verified answers from real laws",
+    "English, Urdu & regional languages support",
+  ],
+  highlighted: false,
+},
+{
+  name: "Plus",
+  price: "PKR 350",
+  period: "/month",
+  description: "For individuals needing regular legal help",
+  features: [
+    "100 legal queries per month",
+    "Ask follow-up questions",
+    "Voice & text replies included",
+    "Verified answers from real laws",
+    "Priority response time",
+    "English, Urdu & regional languages support",
+  ],
+  highlighted: true,
+},
+{
+  name: "Enterprise",
+  price: "Custom",
+  period: "",
+  description: "Tailored for law firms & organizations",
+  features: [
+    "Unlimited team queries",
+    "Research version for legal teams",
+    "Lawyer & firm promotion tools",
+    "Custom data integrations",
+    "Legal insights dashboard",
+    "Dedicated support & onboarding",
+  ],
+  highlighted: false,
+},
   ];
 
   return (
-    <section
-      ref={forwardedRef}
-      id="works"
-      className="nav-change my-[20%] overflow-hidden"
-    >
+    <section ref={forwardedRef} id="works" className="nav-change my-[20%]">
       <Heading title="Pricing" />
-      <div className="mt-10">
-        <h3 className="mb-4 text-center text-heading-3 font-semibold leading-tight text-accent-300">
-          Simple, Affordable, Transparent.
-        </h3>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-body-1 text-accent-200">
+      <div className="mt-5">
+        <p className="mx-auto mb-12 max-w-2xl text-center text-body-1 text-primary-200">
           Choose the plan that works for you. Start free and upgrade anytime.
         </p>
 
@@ -87,10 +82,10 @@ export default function Pricing({ forwardedRef }) {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className={`translate-y-10 space-y-6 rounded-lg border p-8 opacity-0 transition-all duration-300 hover:shadow-xl ${
+              className={`translate-y-10 space-y-6 overflow-hidden rounded-lg border-2 p-8 opacity-0 transition-all duration-300 hover:shadow-xl ${
                 plan.highlighted
-                  ? "scale-105 border-secondary-600 bg-secondary-600 text-primary-200 shadow-lg"
-                  : "border-accent-100 bg-primary-200 hover:border-secondary-600"
+                  ? "scale-105 border-secondary-600 bg-secondary-600 text-primary-200 shadow-lg hover:border-primary-200"
+                  : "border-transparent bg-primary-200 hover:border-secondary-600"
               }`}
             >
               <div>
@@ -103,7 +98,7 @@ export default function Pricing({ forwardedRef }) {
                 </h4>
                 <p
                   className={`mt-2 text-sm ${
-                    plan.highlighted ? "text-primary-300" : "text-accent-200"
+                    plan.highlighted ? "text-primary-200" : "text-accent-200"
                   }`}
                 >
                   {plan.description}
@@ -112,14 +107,14 @@ export default function Pricing({ forwardedRef }) {
 
               <div className="flex items-baseline">
                 <span
-                  className={`text-4xl font-bold ${
+                  className={`font-serif text-4xl font-bold ${
                     plan.highlighted ? "text-primary-200" : "text-accent-300"
                   }`}
                 >
                   {plan.price}
                 </span>
                 <span
-                  className={`ml-1 ${
+                  className={`ml-1 font-serif font-bold ${
                     plan.highlighted ? "text-primary-300" : "text-accent-200"
                   }`}
                 >
@@ -150,17 +145,6 @@ export default function Pricing({ forwardedRef }) {
                   </li>
                 ))}
               </ul>
-
-              <a
-                href="#contact"
-                className={`block w-full rounded-full py-3 text-center font-semibold transition-all duration-200 ${
-                  plan.highlighted
-                    ? "bg-primary-200 text-secondary-600 hover:bg-primary-300"
-                    : "bg-accent-300 text-primary-200 hover:bg-accent-400"
-                }`}
-              >
-                {plan.name === "Enterprise" ? "Contact Us" : "Get Started"}
-              </a>
             </div>
           ))}
         </div>

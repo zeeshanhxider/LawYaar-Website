@@ -77,7 +77,7 @@ export default function Solution() {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="translate-y-10 space-y-4 rounded-lg border border-transparent bg-primary-200 p-6 opacity-0 transition-all duration-300 hover:border-black"
+              className="translate-y-10 space-y-4 rounded-lg border-2 border-transparent bg-primary-200 p-6 opacity-0 transition-all duration-300 hover:border-secondary-600"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary-600">
