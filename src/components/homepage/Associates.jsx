@@ -131,7 +131,7 @@ export default function Associates() {
       </div>
 
       {/* Law Firm Illustration */}
-      <div className="mx-auto -mt-20 mb-16 max-w-xl md:max-w-xl">
+      <div className="mx-auto mt-8 mb-16 max-w-xl md:-mt-20 md:max-w-xl">
         <img
           src={lawFirmIllustration}
           alt="Law Firm Partnership"
