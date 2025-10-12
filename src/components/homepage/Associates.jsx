@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslation } from "../../utils/TranslationContext";
 import Heading from "../ui/Heading";
 import lawFirmIllustration from "../../assets/illustrations/law-firm.png";
 
 export default function Associates() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     organization: "",
     email: "",
@@ -73,14 +75,14 @@ export default function Associates() {
     const newErrors = {};
 
     if (!form.organization.trim())
-      newErrors.organization = "Organization name is required.";
-    if (!form.email.trim()) newErrors.email = "Email is required.";
+      newErrors.organization = t.associates.organizationError;
+    if (!form.email.trim()) newErrors.email = t.associates.emailError;
     else if (!validateEmail(form.email))
-      newErrors.email = "Please enter a valid email address.";
-    if (!form.contact.trim()) newErrors.contact = "Contact number is required.";
+      newErrors.email = t.associates.emailInvalidError;
+    if (!form.contact.trim()) newErrors.contact = t.associates.contactError;
     else if (!validateContact(form.contact))
-      newErrors.contact = "Please enter a valid Pakistani contact number.";
-    if (!form.message.trim()) newErrors.message = "Message is required.";
+      newErrors.contact = t.associates.contactInvalidError;
+    if (!form.message.trim()) newErrors.message = t.associates.messageError;
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) {
@@ -121,13 +123,10 @@ export default function Associates() {
       {/* Hero Section */}
       <div className="mx-auto max-w-4xl text-center">
         <h1 className="font-serif text-4xl font-bold text-accent-300 md:text-4xl lg:text-5xl">
-          Partner with LawYaar
+          {t.associates.heroTitle}
         </h1>
         <p className="mx-auto mt-2 max-w-3xl text-sm text-accent-300 md:text-base">
-          Thousands reach out to LawYaar daily for legal help. While we provide
-          initial guidance, many users need professional representation — this
-          is where your firm comes in. Expand your reach, connect with clients,
-          and access cutting-edge legal research tools.
+          {t.associates.heroDescription}
         </p>
       </div>
 
@@ -144,7 +143,7 @@ export default function Associates() {
       <div className="mx-auto max-w-4xl space-y-12">
         {/* What We Offer */}
         <div>
-          <Heading title="What We Offer" />
+          <Heading title={t.associates.whatWeOfferHeading} />
 
           <div className="mt-8 space-y-8">
             {/* Client Referrals */}
@@ -155,14 +154,11 @@ export default function Associates() {
                   className="text-3xl text-secondary-600"
                 />
                 <h3 className="font-serif text-xl font-bold text-accent-300 md:text-2xl">
-                  1. Client Referrals
+                  {t.associates.section1Title}
                 </h3>
               </div>
               <p className="text-body-2 leading-relaxed text-accent-300">
-                We direct users who need professional advice or representation
-                to our partner law firms. You get visibility where real legal
-                demand exists — helping clients who are already pre-screened and
-                looking for help in your domain.
+                {t.associates.section1Description}
               </p>
             </div>
 
@@ -174,14 +170,11 @@ export default function Associates() {
                   className="text-3xl text-secondary-600"
                 />
                 <h3 className="font-serif text-xl font-bold text-accent-300 md:text-2xl">
-                  2. Lawyer & Firm Promotion
+                  {t.associates.section2Title}
                 </h3>
               </div>
               <p className="text-body-2 leading-relaxed text-accent-300">
-                Your firm and individual lawyers can be featured directly within
-                LawYaar, allowing users to view verified lawyer profiles,
-                practice areas, and contact details. This helps build trust and
-                increases direct engagement from clients.
+                {t.associates.section2Description}
               </p>
             </div>
 
@@ -193,12 +186,11 @@ export default function Associates() {
                   className="text-3xl text-secondary-600"
                 />
                 <h3 className="font-serif text-xl font-bold text-accent-300 md:text-2xl">
-                  3. Custom Research Access
+                  {t.associates.section3Title}
                 </h3>
               </div>
               <p className="mb-4 text-body-2 leading-relaxed text-accent-300">
-                We provide a dedicated, research-grade version of LawYaar for
-                legal professionals and firms. This includes:
+                {t.associates.section3Description}
               </p>
               <ul className="ml-6 space-y-2 text-body-2 text-accent-300">
                 <li className="flex items-start">
@@ -206,24 +198,21 @@ export default function Associates() {
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>Access to our AI-powered legal search tool</span>
+                  <span>{t.associates.section3Feature1}</span>
                 </li>
                 <li className="flex items-start">
                   <Icon
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>
-                    Retrieval from verified law sources (e.g., Supreme Court
-                    judgments, federal/provincial acts)
-                  </span>
+                  <span>{t.associates.section3Feature2}</span>
                 </li>
                 <li className="flex items-start">
                   <Icon
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>Secure firm-specific data integration (optional)</span>
+                  <span>{t.associates.section3Feature3}</span>
                 </li>
               </ul>
             </div>
@@ -233,12 +222,11 @@ export default function Associates() {
               <div className="mb-3 flex items-center gap-3">
                 <Icon icon="mdi:cog" className="text-3xl text-secondary-600" />
                 <h3 className="font-serif text-xl font-bold text-accent-300 md:text-2xl">
-                  4. Custom Integration
+                  {t.associates.section4Title}
                 </h3>
               </div>
               <p className="mb-4 text-body-2 leading-relaxed text-accent-300">
-                Connect LawYaar with your firm's internal systems for a seamless
-                workflow. This includes:
+                {t.associates.section4Description}
               </p>
               <ul className="ml-6 space-y-2 text-body-2 text-accent-300">
                 <li className="flex items-start">
@@ -246,33 +234,32 @@ export default function Associates() {
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>Integration with your firm's knowledge base</span>
+                  <span>{t.associates.section4Feature1}</span>
                 </li>
                 <li className="flex items-start">
                   <Icon
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>CRM system integration for client management</span>
+                  <span>{t.associates.section4Feature2}</span>
                 </li>
                 <li className="flex items-start">
                   <Icon
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>Analytics dashboards with engagement insights</span>
+                  <span>{t.associates.section4Feature3}</span>
                 </li>
                 <li className="flex items-start">
                   <Icon
                     icon="mdi:check-circle"
                     className="mr-2 mt-0.5 flex-shrink-0 text-xl text-secondary-600"
                   />
-                  <span>Tracking of legal topics and demand areas</span>
+                  <span>{t.associates.section4Feature4}</span>
                 </li>
               </ul>
               <p className="mt-4 text-body-2 italic text-accent-300">
-                Pricing is customized based on your firm's scale, usage needs,
-                and level of integration.
+                {t.associates.section4Note}
               </p>
             </div>
           </div>
@@ -280,7 +267,7 @@ export default function Associates() {
 
         {/* Contact Form */}
         <div className="mt-24">
-          <Heading title="Contact Us" />
+          <Heading title={t.associates.contactHeading} />
           <div className="mx-auto mt-8 max-w-2xl">
             <form
               name="law-firm-contact"
@@ -305,7 +292,7 @@ export default function Associates() {
                   htmlFor="organization"
                   className="absolute left-0 top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 text-accent-100 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 2xl:text-body-2"
                 >
-                  Organization Name
+                  {t.associates.organizationLabel}
                 </label>
                 {errors.organization && (
                   <span className="absolute -bottom-6 left-0 text-sm text-red-500">
@@ -329,7 +316,7 @@ export default function Associates() {
                   htmlFor="email"
                   className="absolute left-0 top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 text-accent-100 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 2xl:text-body-2"
                 >
-                  Email Address
+                  {t.associates.emailLabel}
                 </label>
                 {errors.email && (
                   <span className="absolute -bottom-6 left-0 text-sm text-red-500">
@@ -353,7 +340,7 @@ export default function Associates() {
                   htmlFor="contact"
                   className="absolute left-0 top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 text-accent-100 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 2xl:text-body-2"
                 >
-                  Contact Number
+                  {t.associates.contactLabel}
                 </label>
                 {errors.contact && (
                   <span className="absolute -bottom-6 left-0 text-sm text-red-500">
@@ -377,7 +364,7 @@ export default function Associates() {
                   htmlFor="message"
                   className="absolute left-0 top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 text-accent-100 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 2xl:text-body-2"
                 >
-                  Message
+                  {t.associates.messageLabel}
                 </label>
                 {errors.message && (
                   <span className="absolute -bottom-6 left-0 text-sm text-red-500">
@@ -394,7 +381,7 @@ export default function Associates() {
               >
                 <span className="relative w-fit">
                   <span className="group-hover:text-accent-400">
-                    {submitting ? "Sending..." : "Submit"}
+                    {submitting ? t.associates.sendingButton : t.associates.submitButton}
                   </span>
                 </span>
               </button>
@@ -404,7 +391,7 @@ export default function Associates() {
                   className="mt-8 text-center font-semibold"
                   style={{ color: "#5E862B" }}
                 >
-                  Thank you for your interest! We'll get back to you soon.
+                  {t.associates.successMessage}
                 </div>
               )}
             </form>

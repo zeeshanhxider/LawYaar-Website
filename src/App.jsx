@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useTranslation } from "./context/TranslationContext";
 
 import NavBar from "./components/ui/NavBar";
 import Hero from "./components/homepage/Hero";
@@ -15,7 +16,7 @@ import Footer from "./components/ui/Footer";
 
 const App = () => {
   gsap.registerPlugin(ScrollTrigger);
-
+  const { language } = useTranslation();
   const sectionRefs = useRef([]);
 
   const HomePage = () => {
@@ -91,7 +92,10 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="bg-secondary-100">
+      <div 
+        className={`bg-secondary-100 ${language === "ur" ? "font-urdu" : ""}`}
+        dir={language === "ur" ? "rtl" : "ltr"}
+      >
         <NavBar sectionRefs={sectionRefs.current} />{" "}
         {/* passing sectionRefs props to give access to Navbar, Navbar can then access the props which have access to the array of sectionRef and loop over it */}
         <Routes>

@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBarSVG from "./NavbarSVG";
 import { Squash as Hamburger } from "hamburger-react";
+import { Icon } from "@iconify/react";
+import { useTranslation } from "../../context/TranslationContext";
 import lawyaarLogo from "../../assets/logo/lawyaar_logo.png";
 
 export default function NavBar({ sectionRefs = [] }) {
@@ -16,6 +18,7 @@ export default function NavBar({ sectionRefs = [] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { language, toggleLanguage, t } = useTranslation();
   const tl = gsap.timeline();
   gsap.registerPlugin(ScrollTrigger);
 
@@ -150,7 +153,7 @@ export default function NavBar({ sectionRefs = [] }) {
           >
             <h1 className="font flex items-center gap-2 text-lg font-semibold">
               <img src={lawyaarLogo} alt="LawYaar Logo" className="h-8 w-8" />
-              LawYaar
+              {t.brand.name}
             </h1>
           </a>
 
@@ -181,16 +184,16 @@ export default function NavBar({ sectionRefs = [] }) {
           >
             <h1 className="font flex items-center gap-2 text-lg font-semibold">
               <img src={lawyaarLogo} alt="LawYaar Logo" className="h-8 w-8" />
-              LawYaar
+              {t.brand.name}
             </h1>
           </a>
-          <nav className=" space-x-7 font-grotesk text-body-3 sm:block">
+          <nav className="flex items-center space-x-7 font-grotesk text-body-3">
             <a
               href="#hero"
               className="group relative hidden md:inline-block"
               onClick={(e) => handleSmoothScroll(e, "#hero")}
             >
-              <span>Home</span>
+              <span>{t.nav.home}</span>
               <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
             </a>
             <a
@@ -198,7 +201,7 @@ export default function NavBar({ sectionRefs = [] }) {
               className="group relative hidden md:inline-block"
               onClick={(e) => handleSmoothScroll(e, "#about")}
             >
-              <span>About</span>
+              <span>{t.nav.about}</span>
               <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
             </a>
             <a
@@ -206,7 +209,7 @@ export default function NavBar({ sectionRefs = [] }) {
               className="group relative hidden md:inline-block"
               onClick={(e) => handleSmoothScroll(e, "#services")}
             >
-              <span>Impact</span>
+              <span>{t.nav.impact}</span>
               <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
             </a>
             <a
@@ -214,25 +217,33 @@ export default function NavBar({ sectionRefs = [] }) {
               className="group relative hidden md:inline-block"
               onClick={(e) => handleSmoothScroll(e, "#works")}
             >
-              <span>Pricing</span>
+              <span>{t.nav.pricing}</span>
               <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
             </a>
             <button
               onClick={() => navigate("/associates")}
               className="group relative hidden md:inline-block"
             >
-              <span>For Law Firms</span>
+              <span>{t.nav.forLawFirms}</span>
               <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
+            </button>
+            <button
+              onClick={toggleLanguage}
+              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-transparent transition-all duration-200 hover:border-secondary-600"
+              aria-label="Toggle language"
+              title={language === "en" ? "اردو میں دیکھیں" : "View in English"}
+            >
+              <Icon icon="mdi:translate" className="text-xl text-accent-400 transition-colors duration-200 group-hover:text-secondary-600" />
             </button>
             <a
               ref={cta}
-              className="button group relative mt-10 min-w-0 border border-transparent px-4 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
+              className="button group relative min-w-0 border border-transparent px-4 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
               href="#contact"
               onClick={(e) => handleSmoothScroll(e, "#contact")}
               style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
             >
               <span className="relative w-fit">
-                <span className="group-hover:text-black">Join Waitlist</span>
+                <span className="group-hover:text-black">{t.nav.joinWaitlist}</span>
               </span>
             </a>
           </nav>
@@ -251,41 +262,49 @@ export default function NavBar({ sectionRefs = [] }) {
             onClick={(e) => handleSmoothScroll(e, "#hero")}
             className="hb-text"
           >
-            <span>Home</span>
+            <span>{t.nav.home}</span>
           </a>
           <a
             href="#about"
             onClick={(e) => handleSmoothScroll(e, "#about")}
             className="hb-text"
           >
-            <span>About</span>
+            <span>{t.nav.about}</span>
           </a>
           <a
             href="#services"
             onClick={(e) => handleSmoothScroll(e, "#services")}
             className="hb-text"
           >
-            <span>Impact</span>
+            <span>{t.nav.impact}</span>
           </a>
           <a
             href="#works"
             onClick={(e) => handleSmoothScroll(e, "#works")}
             className="hb-text"
           >
-            <span>Pricing</span>
+            <span>{t.nav.pricing}</span>
           </a>
           <button onClick={() => navigate("/associates")} className="hb-text">
-            <span>For Law Firms</span>
+            <span>{t.nav.forLawFirms}</span>
+          </button>
+          <button
+            onClick={toggleLanguage}
+            className="group hb-text flex items-center gap-2 rounded-full border border-transparent px-4 py-2 transition-all duration-200 hover:border-secondary-600"
+            aria-label="Toggle language"
+          >
+            <Icon icon="mdi:translate" className="text-3xl transition-colors duration-200 group-hover:text-secondary-600" />
+            <span className="text-lg transition-colors duration-200 group-hover:text-secondary-600">{language === "en" ? "اردو" : "English"}</span>
           </button>
           <a
-            className="button group relative mt-4 min-w-0 border border-transparent px-5 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
+            className="button group relative min-w-0 border border-transparent px-5 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
             href="#contact"
             onClick={(e) => handleSmoothScroll(e, "#contact")}
             ref={cta}
             style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
           >
             <span className="relative w-fit">
-              <span className="group-hover:text-black">Join Waitlist</span>
+              <span className="group-hover:text-black">{t.nav.joinWaitlist}</span>
             </span>
           </a>
         </nav>

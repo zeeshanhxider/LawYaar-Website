@@ -2,30 +2,28 @@ import Heading from "../ui/Heading";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef, useEffect } from "react";
+import { useTranslation } from "../../context/TranslationContext";
 import chatImg from "../../assets/illustrations/chat.png";
 import farmerImg from "../../assets/illustrations/farmer.png";
 
 export default function Impact() {
+  const { t } = useTranslation();
+
   return (
     <section id="services" className="my-[15%]" aria-label="impact">
-      <Heading title="Our Impact" />
+      <Heading title={t.impact.heading} />
       <div className="space-y-20 md:space-y-32">
         <ImpactSection
-          title="Accessible Justice for Everyone — Anytime, Anywhere."
+          title={t.impact.section1Title}
           description={
             <>
-              In Pakistan, legal knowledge is often locked behind paywalls,
-              lawyers, and complicated websites.
+              {t.impact.section1Para1}
               <br />
               <br />
-              LawYaar changes that by bringing verified legal help directly to
-              WhatsApp — a familiar, trusted platform used by over 60 million
-              Pakistanis.
+              {t.impact.section1Para2}
               <br />
               <br />
-              Whether you're in a city or a remote village, LawYaar lets you ask
-              questions in Urdu, English, or regional languages, and get
-              accurate, voice-enabled answers within seconds.
+              {t.impact.section1Para3}
             </>
           }
           image={chatImg}
@@ -33,21 +31,16 @@ export default function Impact() {
           imagePosition="right"
         />
         <ImpactSection
-          title="Built for the People Who Need It Most."
+          title={t.impact.section2Title}
           description={
             <>
-              LawYaar empowers those who often struggle most with the legal
-              system — the tenant, the farmer, the student, and the small
-              business owner.
+              {t.impact.section2Para1}
               <br />
               <br />
-              It gives them the clarity to make informed decisions about their
-              rights, without spending thousands on consultations or traveling
-              miles to find a lawyer.
+              {t.impact.section2Para2}
               <br />
               <br />
-              Our goal is simple: make justice accessible, affordable, and
-              understandable for every Pakistani.
+              {t.impact.section2Para3}
             </>
           }
           image={farmerImg}

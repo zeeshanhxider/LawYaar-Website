@@ -1,4 +1,8 @@
+import { useTranslation } from "../../context/TranslationContext";
+
 export default function Problem({ forwardedRef }) {
+  const { t } = useTranslation();
+
   return (
     <section
       ref={forwardedRef}
@@ -8,19 +12,16 @@ export default function Problem({ forwardedRef }) {
     >
       <div className="flex w-full flex-col items-center space-y-8 text-center">
         <h2 className="text-heading-2 font-bold leading-tight text-accent-300">
-          Legal help is hard to{" "}
-          <span className="font-[inherit] text-secondary-600">find</span> — and
-          even harder to{" "}
-          <span className="font-[inherit] text-secondary-600">afford</span>
+          {t.problem.title}{" "}
+          <span className="font-[inherit] text-secondary-600">{t.problem.titleHighlight1}</span> {t.problem.titleAnd}{" "}
+          <span className="font-[inherit] text-secondary-600">{t.problem.titleHighlight2}</span>
         </h2>
         <p className="max-w-4xl text-body-1 text-accent-300 md:leading-relaxed">
-          Millions of Pakistanis face legal problems every year, but most can't
-          afford a lawyer or don't know where to start. LawYaar changes that —
-          making verified legal guidance just a{" "}
+          {t.problem.descriptionBegin}{" "}
           <span className="font-semibold text-secondary-600">
-            WhatsApp message
+            {t.problem.descriptionHighlight}
           </span>{" "}
-          away.
+          {t.problem.descriptionEnd}
         </p>
       </div>
     </section>

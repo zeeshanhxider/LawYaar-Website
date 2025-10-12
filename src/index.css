@@ -74,6 +74,120 @@
     @apply font-serif tracking-headings;
   }
 
+  /* Urdu font override when font-urdu class is applied */
+  .font-urdu,
+  .font-urdu * {
+    font-family: "NotoSansArabic_Condensed-Medium", sans-serif !important;
+  }
+
+  /* Better text rendering for Urdu */
+  .font-urdu {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* RTL specific styles for Urdu */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  /* All text elements right-aligned in RTL */
+  [dir="rtl"] p,
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6,
+  [dir="rtl"] li,
+  [dir="rtl"] span {
+    text-align: right !important;
+  }
+
+  /* Form inputs and textareas alignment in RTL */
+  [dir="rtl"] input,
+  [dir="rtl"] textarea {
+    text-align: right !important;
+  }
+
+  /* Override text-left class in RTL */
+  [dir="rtl"] .text-left {
+    text-align: right !important;
+  }
+
+  /* Placeholder alignment in RTL */
+  [dir="rtl"] input::placeholder,
+  [dir="rtl"] textarea::placeholder {
+    text-align: right;
+    direction: rtl;
+  }
+
+  /* Firefox specific placeholder alignment */
+  [dir="rtl"] input::-moz-placeholder,
+  [dir="rtl"] textarea::-moz-placeholder {
+    text-align: right;
+    direction: rtl;
+  }
+
+  /* WebKit specific placeholder alignment */
+  [dir="rtl"] input::-webkit-input-placeholder,
+  [dir="rtl"] textarea::-webkit-input-placeholder {
+    text-align: right;
+    direction: rtl;
+  }
+
+  /* Floating labels positioning in RTL */
+  [dir="rtl"] label.absolute.left-0 {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  /* Adjust label transform origin for RTL */
+  [dir="rtl"] label.origin-\\[0\\] {
+    transform-origin: right !important;
+  }
+
+  /* Peer focus state for labels in RTL */
+  [dir="rtl"] .peer:focus ~ label.absolute {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  /* Only keep large section headings centered */
+  [dir="rtl"] .section-heading h2 {
+    text-align: center !important;
+  }
+
+  /* Keep about section (Problem section) centered in RTL */
+  [dir="rtl"] #about h2,
+  [dir="rtl"] #about p {
+    text-align: center !important;
+  }
+
+  /* Prevent icon rotation in RTL (we want them to move position, not flip) */
+  [dir="rtl"] svg,
+  [dir="rtl"] img {
+    transform: scaleX(1);
+  }
+
+  /* Keep navbar and footer in LTR layout even in RTL mode */
+  [dir="rtl"] header,
+  [dir="rtl"] footer {
+    direction: ltr;
+  }
+
+  /* But keep the text inside navbar/footer using Urdu font */
+  [dir="rtl"] header *,
+  [dir="rtl"] footer * {
+    direction: ltr;
+  }
+
+  /* Fix back to top arrow rotation in RTL */
+  [dir="rtl"] footer svg.-rotate-90 {
+    transform: rotate(-90deg) !important;
+  }
+
   .font-outline-4 {
     -webkit-text-stroke: 5px #5e862b;
   }

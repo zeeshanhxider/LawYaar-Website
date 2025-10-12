@@ -2,10 +2,12 @@ import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "../../context/TranslationContext";
 import Heading from "../ui/Heading";
 import { Icon } from "@iconify/react";
 
 export default function Pricing({ forwardedRef }) {
+  const { t } = useTranslation();
   const cardsRef = useRef([]);
   const navigate = useNavigate();
 
@@ -27,45 +29,45 @@ export default function Pricing({ forwardedRef }) {
 
   const pricingPlans = [
     {
-      name: "Starter",
-      price: "PKR 0",
-      period: "/month",
-      description: "Try LawYaar for free",
+      name: t.pricing.starterName,
+      price: t.pricing.starterPrice,
+      period: t.pricing.starterPeriod,
+      description: t.pricing.starterDescription,
       features: [
-        "3 legal queries per month",
-        "Voice & text replies included",
-        "Verified answers from real laws",
-        "English, Urdu & regional languages support",
+        t.pricing.starterFeature1,
+        t.pricing.starterFeature2,
+        t.pricing.starterFeature3,
+        t.pricing.starterFeature4,
       ],
       highlighted: false,
     },
     {
-      name: "Plus",
-      price: "PKR 350",
-      period: "/month",
-      description: "For individuals needing regular legal help",
+      name: t.pricing.plusName,
+      price: t.pricing.plusPrice,
+      period: t.pricing.plusPeriod,
+      description: t.pricing.plusDescription,
       features: [
-        "100 legal queries per month",
-        "Ask follow-up questions",
-        "Voice & text replies included",
-        "Verified answers from real laws",
-        "Priority response time",
-        "English, Urdu & regional languages support",
+        t.pricing.plusFeature1,
+        t.pricing.plusFeature2,
+        t.pricing.plusFeature3,
+        t.pricing.plusFeature4,
+        t.pricing.plusFeature5,
+        t.pricing.plusFeature6,
       ],
       highlighted: true,
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "Tailored for law firms & organizations",
+      name: t.pricing.enterpriseName,
+      price: t.pricing.enterprisePrice,
+      period: t.pricing.enterprisePeriod,
+      description: t.pricing.enterpriseDescription,
       features: [
-        "Unlimited team queries",
-        "Research version for legal teams",
-        "Lawyer & firm promotion tools",
-        "Custom data integrations",
-        "Legal insights dashboard",
-        "Dedicated support & onboarding",
+        t.pricing.enterpriseFeature1,
+        t.pricing.enterpriseFeature2,
+        t.pricing.enterpriseFeature3,
+        t.pricing.enterpriseFeature4,
+        t.pricing.enterpriseFeature5,
+        t.pricing.enterpriseFeature6,
       ],
       highlighted: false,
     },
@@ -73,10 +75,10 @@ export default function Pricing({ forwardedRef }) {
 
   return (
     <section ref={forwardedRef} id="works" className="nav-change my-[20%]">
-      <Heading title="Pricing" />
+      <Heading title={t.pricing.heading} />
       <div className="mt-5">
         <p className="mx-auto mb-12 max-w-2xl text-center text-body-1 text-accent-300">
-          Choose the plan that works for you. Start free and upgrade anytime.
+          {t.pricing.description}
         </p>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -148,7 +150,7 @@ export default function Pricing({ forwardedRef }) {
                 ))}
               </ul>
 
-              {plan.name === "Enterprise" && (
+              {plan.name === t.pricing.enterpriseName && (
                 <button
                   onClick={() => navigate("/associates")}
                   className="button group mx-auto mt-6 block w-fit border border-transparent px-6 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
@@ -156,7 +158,7 @@ export default function Pricing({ forwardedRef }) {
                 >
                   <span className="relative w-fit">
                     <span className="group-hover:text-accent-400">
-                      Learn More
+                      {t.pricing.learnMore}
                     </span>
                   </span>
                 </button>

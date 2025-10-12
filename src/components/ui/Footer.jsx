@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
+import { useTranslation } from "../../context/TranslationContext";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const lenisRef = useRef(null);
 
   useEffect(() => {
@@ -39,8 +41,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:space-x-2">
           <div className="flex space-x-1">
             <span>&copy;</span>
-            <span>2025</span>
-            <span className="font-extrabold 2xl:text-body-1">LawYaar</span>
+            <span>{t.footer.copyright}</span>
+            <span className="font-extrabold 2xl:text-body-1">{t.brand.name}</span>
           </div>
         </div>
       </div>
@@ -49,7 +51,7 @@ export default function Footer() {
         className="group col-span-2 flex w-fit items-center space-x-2 2xl:text-body-1"
       >
         <span className="font-extrabold uppercase duration-200 hover:font-black">
-          BACK TO TOP
+          {t.footer.backToTop}
         </span>
         <span className="duration-300 ease-in-out group-hover:-translate-y-3">
           <svg

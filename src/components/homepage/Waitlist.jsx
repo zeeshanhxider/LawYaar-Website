@@ -2,9 +2,11 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
+import { useTranslation } from "../../context/TranslationContext";
 import Heading from "../ui/Heading";
 
 export default function Waitlist() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({ name: "", whatsapp: "" });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
@@ -50,11 +52,11 @@ export default function Waitlist() {
   async function handleSubmit(e) {
     e.preventDefault();
     const newErrors = {};
-    if (!form.name.trim()) newErrors.name = "Name is required.";
+    if (!form.name.trim()) newErrors.name = t.waitlist.nameError;
     if (!form.whatsapp.trim())
-      newErrors.whatsapp = "WhatsApp number is required.";
+      newErrors.whatsapp = t.waitlist.whatsappError;
     else if (!validateWhatsApp(form.whatsapp))
-      newErrors.whatsapp = "Please enter a valid Pakistani WhatsApp number.";
+      newErrors.whatsapp = t.waitlist.whatsappInvalidError;
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) {
       setTimeout(() => setErrors({}), 5000);
@@ -90,7 +92,7 @@ export default function Waitlist() {
       className="my-[10%] overflow-hidden"
       aria-label="waitlist"
     >
-      <Heading title="Join Waitlist" />
+      <Heading title={t.waitlist.heading} />
       <div
         ref={contactSection}
         className="mt-3 flex flex-col items-center text-center"
@@ -100,8 +102,7 @@ export default function Waitlist() {
             ref={body}
             className="mt-6 translate-y-10 text-body-1 opacity-0 2xl:text-3xl"
           >
-            Be among the first to use LawYaar. Enter your name and WhatsApp
-            number to get access.
+            {t.waitlist.description}
           </p>
           <form
             name="waitlist"
@@ -125,7 +126,7 @@ export default function Waitlist() {
                   htmlFor="name"
                   className="absolute left-0 top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 text-accent-100 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 2xl:text-body-2"
                 >
-                  Your Name
+                  {t.waitlist.nameLabel}
                 </label>
                 {errors.name && (
                   <span className="absolute -bottom-6 left-0 text-sm text-red-500">
@@ -147,7 +148,7 @@ export default function Waitlist() {
                   htmlFor="whatsapp"
                   className="absolute left-0 top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 text-accent-100 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 2xl:text-body-2"
                 >
-                  WhatsApp Number
+                  {t.waitlist.whatsappLabel}
                 </label>
                 {errors.whatsapp && (
                   <span className="absolute -bottom-6 left-0 text-sm text-red-500">
@@ -164,13 +165,13 @@ export default function Waitlist() {
             >
               <span className="relative w-fit">
                 <span className="group-hover:text-accent-400">
-                  {submitting ? "Joining..." : "Join Waitlist"}
+                  {submitting ? t.waitlist.joiningButton : t.waitlist.joinButton}
                 </span>
               </span>
             </button>
             {success && (
               <div className="mt-8 font-semibold" style={{ color: "#5E862B" }}>
-                Thank you for joining the waitlist! We'll contact you soon on WhatsApp.
+                {t.waitlist.successMessage}
               </div>
             )}
           </form>

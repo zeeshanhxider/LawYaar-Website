@@ -1,8 +1,10 @@
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
+import { useTranslation } from "../../context/TranslationContext";
 import lawFirmIllustration from "../../assets/illustrations/lawyer.png";
 
 export default function Hero() {
+  const { t } = useTranslation();
   const illustration = useRef(null);
   const desktopTitles = useRef([]);
   const mobileTitles = useRef([]);
@@ -51,18 +53,14 @@ export default function Hero() {
               ref={(el) => (mobileTitles.current[0] = el)}
               className="w-full text-center text-[7vw] font-bold leading-tight"
             >
-              Your Legal Questions. Verified Answers. All on WhatsApp.
+              {t.hero.title}
             </h1>
           </div>
           <p
             ref={(el) => (mobileTitles.current[1] = el)}
             className="mt-4 max-w-lg text-center text-[3.5vw] leading-relaxed"
           >
-            LawYaar is Pakistan's first AI-powered legal assistant on WhatsApp.
-            It helps you understand your rights — from inheritance to tenancy —
-            with verified answers backed by real laws and Supreme Court
-            judgments. Just text or send a voice note in Urdu or English,
-            anytime.
+            {t.hero.description}
           </p>
         </div>
 
@@ -86,18 +84,14 @@ export default function Hero() {
             ref={(el) => (desktopTitles.current[0] = el)}
             className="text-5xl font-bold leading-tight xl:text-6xl"
           >
-            Your Legal Questions. Verified Answers. All on WhatsApp.
+            {t.hero.title}
           </h1>
 
           <p
             ref={(el) => (desktopTitles.current[1] = el)}
             className="mt-8 text-lg leading-relaxed xl:text-xl"
           >
-            LawYaar is Pakistan’s first AI-powered legal assistant on WhatsApp.
-            It helps you understand your rights — from inheritance to tenancy —
-            with verified answers backed by real laws and Supreme Court
-            judgments. Just text or send a voice note in Urdu or English,
-            anytime.
+            {t.hero.description}
           </p>
         </div>
 

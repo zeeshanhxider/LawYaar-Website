@@ -2,9 +2,11 @@ import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
 import { Icon } from "@iconify/react";
+import { useTranslation } from "../../context/TranslationContext";
 import Heading from "../ui/Heading";
 
 export default function Solution() {
+  const { t } = useTranslation();
   const aboutSection = useRef(null);
   const heading = useRef(null);
   const body = useRef(null);
@@ -46,35 +48,31 @@ export default function Solution() {
   const features = [
     {
       icon: "mdi:account-plus-outline",
-      title: "Step 1 — Join the Waitlist",
-      description:
-        "Add your WhatsApp number to get early access when LawYaar launches. You'll receive an invite link directly to your WhatsApp.",
+      title: t.solution.step1Title,
+      description: t.solution.step1Description,
     },
     {
       icon: "mdi:whatsapp",
-      title: "Step 2 — Ask Your Question",
-      description:
-        "Once you're in, simply text or send a voice message on WhatsApp — in Urdu or English — about any legal issue you're facing, like property, inheritance, or tenancy.",
+      title: t.solution.step2Title,
+      description: t.solution.step2Description,
     },
     {
       icon: "mdi:check-decagram-outline",
-      title: "Step 3 — Get Verified Answers",
-      description:
-        "LawYaar finds the most relevant laws and past court judgments, then explains them in clear, everyday language — even in your regional tongue.",
+      title: t.solution.step3Title,
+      description: t.solution.step3Description,
     },
   ];
 
   return (
     <section ref={aboutSection} aria-label="solution" className="py-10">
-      <Heading title="How It Works" />
+      <Heading title={t.solution.heading} />
       <div className="mt-4 space-y-10">
         <div className="space-y-4 text-center">
           <p
             ref={body}
             className="mx-auto max-w-4xl translate-y-10 text-body-1 opacity-0 2xl:text-4xl"
           >
-            With LawYaar, you can get verified answers to your legal questions
-            in minutes — right from your WhatsApp.
+            {t.solution.description}
           </p>
         </div>
 
