@@ -79,15 +79,17 @@ export default function Solution() {
               ref={(el) => (cardsRef.current[index] = el)}
               className="translate-y-10 space-y-4 rounded-lg border border-transparent bg-primary-200 p-6 opacity-0 transition-all duration-300 hover:border-black"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary-600">
-                <Icon
-                  icon={feature.icon}
-                  className="text-3xl text-primary-200"
-                />
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary-600">
+                  <Icon
+                    icon={feature.icon}
+                    className="text-2xl text-primary-200"
+                  />
+                </div>
+                <h4 className="text-xl font-semibold text-accent-300">
+                  {feature.title}
+                </h4>
               </div>
-              <h4 className="text-xl font-semibold text-accent-300">
-                {feature.title}
-              </h4>
               <p className="text-body-2 text-accent-200">
                 {feature.description}
               </p>
