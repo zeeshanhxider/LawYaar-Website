@@ -62,7 +62,7 @@ export default function Waitlist() {
     }
     setSubmitting(true);
     try {
-      const response = await fetch("https://formspree.io/f/xovnveoy", {
+      const response = await fetch("https://formspree.io/f/mjkaanle", {
         method: "POST",
         headers: {
           Accept: "application/json",
