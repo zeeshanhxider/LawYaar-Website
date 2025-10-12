@@ -8,7 +8,10 @@ export default function Problem({ forwardedRef }) {
     >
       <div className="flex w-full flex-col items-center space-y-8 text-center">
         <h2 className="text-heading-2 font-bold leading-tight text-primary-200">
-          Legal help is hard to find — and even harder to afford.
+          Legal help is hard to{" "}
+          <span className="font-[inherit] text-secondary-600">find</span> — and
+          even harder to{" "}
+          <span className="font-[inherit] text-secondary-600">afford</span>
         </h2>
         <p className="max-w-4xl text-body-1 text-primary-200 md:leading-relaxed">
           Millions of Pakistanis face legal problems every year, but most can't

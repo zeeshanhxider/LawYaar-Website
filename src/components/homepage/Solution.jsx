@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
-import Heading from "../ui/Heading";
 import { Icon } from "@iconify/react";
+import Heading from "../ui/Heading";
 
 export default function Solution() {
   const aboutSection = useRef(null);
@@ -39,42 +39,36 @@ export default function Solution() {
 
   const features = [
     {
+      icon: "mdi:account-plus-outline",
+      title: "Step 1 — Join the Waitlist",
+      description:
+        "Add your WhatsApp number to get early access when LawYaar launches. You'll receive an invite link directly to your WhatsApp.",
+    },
+    {
       icon: "mdi:whatsapp",
-      title: "Ask on WhatsApp",
+      title: "Step 2 — Ask Your Question",
       description:
-        "Simply message LawYaar on WhatsApp with your legal question in English or Urdu.",
+        "Once you're in, simply text or send a voice message on WhatsApp — in Urdu or English — about any legal issue you're facing, like property, inheritance, or tenancy.",
     },
     {
-      icon: "mdi:shield-check",
-      title: "Get Verified Info",
+      icon: "mdi:check-decagram-outline",
+      title: "Step 3 — Get Verified Answers",
       description:
-        "Receive answers backed by real Pakistani court judgments and legal statutes.",
-    },
-    {
-      icon: "mdi:volume-high",
-      title: "Hear It Back",
-      description:
-        "Listen to your legal guidance with AI-powered voice replies for easy understanding.",
+        "LawYaar finds the most relevant laws and past court judgments, then explains them in clear, everyday language — even in your regional tongue.",
     },
   ];
 
   return (
     <section ref={aboutSection} aria-label="solution" className="py-10">
-      <Heading title="How it works" />
-      <div className="mt-10 space-y-10">
-        <div className="space-y-4">
-          <h3
-            ref={heading}
-            className="translate-y-10 text-heading-3 font-semibold leading-tight opacity-0 2xl:text-7xl"
-          >
-            How LawYaar helps you understand the law
-          </h3>
+      <Heading title="How It Works" />
+      <div className="mt-4 space-y-10">
+        <div className="space-y-4 text-center">
           <p
             ref={body}
-            className="max-w-4xl translate-y-10 text-body-1 opacity-0 2xl:text-4xl"
+            className="mx-auto max-w-4xl translate-y-10 text-body-1 opacity-0 2xl:text-4xl"
           >
-            Built on a multi-layered AI system using FastAPI, PocketFlow, and
-            ChromaDB for accurate, citation-backed answers.
+            With LawYaar, you can get verified answers to your legal questions
+            in minutes — right from your WhatsApp.
           </p>
         </div>
 
@@ -83,7 +77,7 @@ export default function Solution() {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="translate-y-10 space-y-4 rounded-lg border border-accent-100 bg-primary-200 p-6 opacity-0 transition-all duration-300 hover:border-secondary-600 hover:shadow-lg"
+              className="translate-y-10 space-y-4 rounded-lg border border-transparent bg-primary-200 p-6 opacity-0 transition-all duration-300 hover:border-black"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary-600">
                 <Icon
