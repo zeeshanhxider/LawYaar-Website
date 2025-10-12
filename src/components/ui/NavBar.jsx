@@ -53,10 +53,9 @@ export default function NavBar({ sectionRefs = [] }) {
         end: "bottom 300px",
         animation: gsap
           .timeline()
-          .to(navBar.current, { color: "#DDDDD5" }, 0)
-          .to(hamburgerRef.current, { color: "#DDDDD5" }, 0)
-          .to(".hb-text", { color: "#DDDDD5" }, 0)
-          .to(".bg-secondary-100", { backgroundColor: "#0E0E0C" }, 0),
+          .to(navBar.current, { color: "#0E0E0C" }, 0)
+          .to(hamburgerRef.current, { color: "#0E0E0C" }, 0)
+          .to(".hb-text", { color: "#0E0E0C" }, 0),
         toggleActions: "restart reverse restart reverse",
       });
     });

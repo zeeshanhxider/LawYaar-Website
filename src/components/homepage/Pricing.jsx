@@ -73,7 +73,7 @@ export default function Pricing({ forwardedRef }) {
     <section ref={forwardedRef} id="works" className="nav-change my-[20%]">
       <Heading title="Pricing" />
       <div className="mt-5">
-        <p className="mx-auto mb-12 max-w-2xl text-center text-body-1 text-primary-200">
+        <p className="mx-auto mb-12 max-w-2xl text-center text-body-1 text-accent-300">
           Choose the plan that works for you. Start free and upgrade anytime.
         </p>
 
@@ -84,7 +84,7 @@ export default function Pricing({ forwardedRef }) {
               ref={(el) => (cardsRef.current[index] = el)}
               className={`translate-y-10 space-y-6 overflow-hidden rounded-lg border-2 p-8 opacity-0 transition-all duration-300 ${
                 plan.highlighted
-                  ? "scale-105 border-secondary-600 bg-secondary-600 text-primary-200 shadow-lg hover:border-primary-200"
+                  ? "scale-105 border-secondary-600 bg-secondary-600 text-primary-200 hover:border-primary-200"
                   : "border-transparent bg-primary-200 hover:border-secondary-600"
               }`}
             >
