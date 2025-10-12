@@ -1,135 +1,121 @@
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
+import lawFirmIllustration from "../../assets/illustrations/law-firm.png";
 
 export default function Hero() {
-  const img = useRef(null);
-  const imgContainer = useRef(null);
+  const illustration = useRef(null);
   const desktopTitles = useRef([]);
   const mobileTitles = useRef([]);
-  const scrollLine = useRef(null);
-  const scroll = useRef(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1 });
-    tl.from(scrollLine.current, {
-      translateX: -40,
-      duration: 1.5,
-      ease: "power4.inOut",
-    });
-  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline();
 
-    tl.from(imgContainer.current, {
-      scale: 1.3,
-      duration: 3.25,
-      ease: "power3.inOut",
-    })
-      .from(
-        img.current,
-        { scale: 2, duration: 3.2, ease: "power4.inOut" },
-        "-=3.1"
-      )
-      .to(
-        [...desktopTitles.current, ...mobileTitles.current],
-        {
-          y: 0,
-          duration: 2,
-          ease: "power4.inOut",
-        },
-        "-=2.5"
-      )
-      .from(scroll.current, { opacity: 0, duration: 1, ease: "out" }, "-=2");
+    // Set initial state
+    gsap.set(illustration.current, { x: 100, opacity: 0 });
+    gsap.set([...desktopTitles.current, ...mobileTitles.current], {
+      y: 50,
+      opacity: 0,
+    });
+
+    // Animate to visible state
+    tl.to(illustration.current, {
+      x: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power3.out",
+    }).to(
+      [...desktopTitles.current, ...mobileTitles.current],
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: "power3.out",
+      },
+      "-=1"
+    );
   }, []);
 
   return (
     <section
       id="hero"
-      className="hero relative flex h-screen w-full select-none items-center justify-center"
+      className="hero relative flex min-h-screen w-full select-none items-center justify-center py-10"
       aria-label="hero"
     >
       {/* MOBILE VERSION */}
-      <div className="z-10 -mt-10 flex w-full flex-col items-center px-5 text-accent-300 sm:hidden">
-        <div className="title py-2">
-          <h1
-            ref={(el) => (mobileTitles.current[0] = el)}
-            className="w-full translate-y-96 overflow-visible text-center text-[10vw] font-bold leading-tight"
-          >
-            Your Legal Questions.
-          </h1>
-          <h1
+      <div className="z-10 flex w-full flex-col items-center justify-between px-5 text-accent-400 lg:hidden">
+        {/* Text Content - Top */}
+        <div className="flex flex-col items-center">
+          <div className="title">
+            <h1
+              ref={(el) => (mobileTitles.current[0] = el)}
+              className="w-full text-center text-[7vw] font-bold leading-tight"
+            >
+              Your Legal Questions. Verified Answers. All on WhatsApp.
+            </h1>
+          </div>
+          <p
             ref={(el) => (mobileTitles.current[1] = el)}
-            className="w-full translate-y-96 overflow-visible text-center text-[10vw] font-bold leading-tight"
+            className="mt-4 max-w-lg text-center text-[3.5vw] leading-relaxed"
           >
-            Verified Answers.
-          </h1>
-          <h1
+            LawYaar is Pakistan's first AI-powered legal assistant on WhatsApp.
+            It helps you understand your rights — from inheritance to tenancy —
+            with verified answers backed by real laws and Supreme Court
+            judgments.
+          </p>
+          <p
             ref={(el) => (mobileTitles.current[2] = el)}
-            className="w-full translate-y-96 overflow-visible text-center text-[10vw] font-bold leading-tight"
+            className="mt-3 text-center text-[3.5vw] font-medium"
           >
-            All on WhatsApp.
-          </h1>
+            Chat in Urdu or English, anytime, anywhere.
+          </p>
         </div>
-        <p
-          ref={(el) => (mobileTitles.current[3] = el)}
-          className="mt-6 max-w-lg translate-y-96 text-center text-body-2 opacity-0"
-        >
-          LawYaar helps Pakistanis understand their legal rights through an
-          AI-powered WhatsApp chatbot — accessible in English and Urdu, verified
-          by real court judgments.
-        </p>
-        <a
-          ref={(el) => (mobileTitles.current[4] = el)}
-          href="#contact"
-          className="button mt-8 translate-y-96 border border-transparent px-6 py-3 opacity-0 duration-200 hover:border-accent-400 hover:bg-transparent"
-          style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
-        >
-          Join Waitlist
-        </a>
+
+        {/* Illustration - Bottom */}
+        <div className="mt-6 w-full max-w-sm">
+          <img
+            ref={(el) => (mobileTitles.current[3] = el)}
+            src={lawFirmIllustration}
+            alt="Law Firm Illustration"
+            className="h-auto w-full"
+            onError={(e) => console.error("Image failed to load:", e)}
+          />
+        </div>
       </div>
+
       {/* DESKTOP VERSION */}
-      <div className="z-10 hidden w-full flex-col items-center px-10 text-accent-300 sm:flex">
-        <div className="title">
+      <div className="z-10 mx-auto hidden w-full max-w-7xl px-10 lg:flex lg:items-center lg:gap-12 xl:gap-16">
+        {/* Left Side - Text Content */}
+        <div className="flex w-1/2 flex-col text-accent-400">
           <h1
             ref={(el) => (desktopTitles.current[0] = el)}
-            className="w-full translate-y-96 overflow-visible text-center text-[6vw] font-bold leading-tight"
+            className="text-5xl font-bold leading-tight xl:text-6xl"
           >
-            Your Legal Questions.
+            Your Legal Questions. Verified Answers. All on WhatsApp.
           </h1>
-        </div>
-        <div className="title">
-          <h1
+
+          <p
             ref={(el) => (desktopTitles.current[1] = el)}
-            className="w-full translate-y-96 overflow-visible text-center text-[6vw] font-bold leading-tight"
+            className="mt-8 text-lg leading-relaxed xl:text-xl"
           >
-            Verified Answers.
-          </h1>
+            LawYaar is Pakistan’s first AI-powered legal assistant on WhatsApp.
+            It helps you understand your rights — from inheritance to tenancy —
+            with verified answers backed by real laws and Supreme Court
+            judgments. Just text or send a voice note in Urdu or English,
+            anytime.
+          </p>
         </div>
-        <div className="title">
-          <h1
-            ref={(el) => (desktopTitles.current[2] = el)}
-            className="w-full translate-y-96 overflow-visible text-center text-[6vw] font-bold leading-tight"
-          >
-            All on WhatsApp.
-          </h1>
+
+        {/* Right Side - Illustration */}
+        <div className="flex w-1/2 items-center justify-center">
+          <img
+            ref={illustration}
+            src={lawFirmIllustration}
+            alt="Law Firm Illustration"
+            className="h-auto w-full max-w-xl"
+            onError={(e) => console.error("Image failed to load:", e)}
+          />
         </div>
-        <p
-          ref={(el) => (desktopTitles.current[3] = el)}
-          className="mt-8 max-w-3xl translate-y-96 text-center text-body-1 opacity-0"
-        >
-          LawYaar helps Pakistanis understand their legal rights through an
-          AI-powered WhatsApp chatbot — accessible in English and Urdu, verified
-          by real court judgments.
-        </p>
-        <a
-          ref={(el) => (desktopTitles.current[4] = el)}
-          href="#contact"
-          className="button mt-10 translate-y-96 border border-transparent px-8 py-3 opacity-0 duration-200 hover:border-accent-400 hover:bg-transparent"
-          style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
-        >
-          Join Waitlist
-        </a>
       </div>
     </section>
   );

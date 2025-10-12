@@ -7,10 +7,10 @@ export default function Problem({ forwardedRef }) {
       aria-label="problem section"
     >
       <div className="flex w-full flex-col items-center space-y-8 text-center">
-        <h2 className="text-heading-2 font-bold leading-tight text-accent-300">
+        <h2 className="text-heading-2 font-bold leading-tight text-primary-200">
           Legal help is hard to find — and even harder to afford.
         </h2>
-        <p className="max-w-4xl text-body-1 text-accent-300 md:leading-relaxed">
+        <p className="max-w-4xl text-body-1 text-primary-200 md:leading-relaxed">
           Millions of Pakistanis face legal problems every year, but most can't
           afford a lawyer or don't know where to start. LawYaar changes that —
           making verified legal guidance just a{" "}
