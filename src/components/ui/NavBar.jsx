@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import NavBarSVG from "./NavbarSVG";
 import { Squash as Hamburger } from "hamburger-react";
 import { Icon } from "@iconify/react";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/TranslationContext";
 import lawyaarLogo from "../../assets/logo/lawyaar_logo.png";
 
 export default function NavBar({ sectionRefs = [] }) {

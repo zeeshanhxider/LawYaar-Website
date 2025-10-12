@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/TranslationContext";
 
 export default function Footer() {
   const { t } = useTranslation();

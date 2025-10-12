@@ -2,7 +2,7 @@ import Heading from "../ui/Heading";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef, useEffect } from "react";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/TranslationContext";
 import chatImg from "../../assets/illustrations/chat.png";
 import farmerImg from "../../assets/illustrations/farmer.png";
 

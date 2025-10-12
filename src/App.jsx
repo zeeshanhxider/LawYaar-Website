@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useTranslation } from "./context/TranslationContext";
+import { useTranslation } from "./utils/TranslationContext";
 
 import NavBar from "./components/ui/NavBar";
 import Hero from "./components/homepage/Hero";

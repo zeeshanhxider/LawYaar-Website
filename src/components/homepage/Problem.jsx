@@ -1,4 +1,4 @@
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/TranslationContext";
 
 export default function Problem({ forwardedRef }) {
   const { t } = useTranslation();

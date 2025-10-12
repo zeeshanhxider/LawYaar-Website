@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/TranslationContext";
 import lawFirmIllustration from "../../assets/illustrations/lawyer.png";
 
 export default function Hero() {

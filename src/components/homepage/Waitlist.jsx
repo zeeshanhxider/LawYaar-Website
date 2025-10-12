@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { useEffect, useState, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
-import { useTranslation } from "../../context/TranslationContext";
+import { useTranslation } from "../../utils/TranslationContext";
 import Heading from "../ui/Heading";
 
 export default function Waitlist() {
