@@ -285,11 +285,20 @@ export default function NavBar({ sectionRefs = [] }) {
           >
             <span>{t.nav.pricing}</span>
           </a>
-          <button onClick={() => navigate("/associates")} className="hb-text">
+          <button
+            onClick={() => {
+              setIsMenuOpen(false);
+              navigate("/associates");
+            }}
+            className="hb-text"
+          >
             <span>{t.nav.forLawFirms}</span>
           </button>
           <button
-            onClick={toggleLanguage}
+            onClick={() => {
+              toggleLanguage();
+              setIsMenuOpen(false);
+            }}
             className="group hb-text flex items-center gap-2 rounded-full border border-transparent px-4 py-2 transition-all duration-200 hover:border-secondary-600"
             aria-label="Toggle language"
           >
