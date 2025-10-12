@@ -42,16 +42,6 @@ export default function Footer() {
             <span>2025</span>
             <span className="font-extrabold 2xl:text-body-1">LawYaar</span>
           </div>
-          <span className="hidden md:inline">|</span>
-          <span className="2xl:text-body-1">
-            Developed by <span className="font-semibold">Zeeshan Haider</span> &{" "}
-            <span className="font-semibold">Bilal Ahmad</span>
-          </span>
-        </div>
-        <div className="mt-2 md:mt-0">
-          <span className="2xl:text-body-1">
-            In collaboration with CVision, NSTP
-          </span>
         </div>
       </div>
       <button

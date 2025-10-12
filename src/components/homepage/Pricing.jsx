@@ -25,48 +25,48 @@ export default function Pricing({ forwardedRef }) {
 
   const pricingPlans = [
     {
-  name: "Starter",
-  price: "PKR 0",
-  period: "/month",
-  description: "Try LawYaar for free",
-  features: [
-    "3 legal queries per month",
-    "Voice & text replies included",
-    "Verified answers from real laws",
-    "English, Urdu & regional languages support",
-  ],
-  highlighted: false,
-},
-{
-  name: "Plus",
-  price: "PKR 350",
-  period: "/month",
-  description: "For individuals needing regular legal help",
-  features: [
-    "100 legal queries per month",
-    "Ask follow-up questions",
-    "Voice & text replies included",
-    "Verified answers from real laws",
-    "Priority response time",
-    "English, Urdu & regional languages support",
-  ],
-  highlighted: true,
-},
-{
-  name: "Enterprise",
-  price: "Custom",
-  period: "",
-  description: "Tailored for law firms & organizations",
-  features: [
-    "Unlimited team queries",
-    "Research version for legal teams",
-    "Lawyer & firm promotion tools",
-    "Custom data integrations",
-    "Legal insights dashboard",
-    "Dedicated support & onboarding",
-  ],
-  highlighted: false,
-},
+      name: "Starter",
+      price: "PKR 0",
+      period: "/month",
+      description: "Try LawYaar for free",
+      features: [
+        "3 legal queries per month",
+        "Voice & text replies included",
+        "Verified answers from real laws",
+        "English, Urdu & regional languages support",
+      ],
+      highlighted: false,
+    },
+    {
+      name: "Plus",
+      price: "PKR 350",
+      period: "/month",
+      description: "For individuals needing regular legal help",
+      features: [
+        "100 legal queries per month",
+        "Ask follow-up questions",
+        "Voice & text replies included",
+        "Verified answers from real laws",
+        "Priority response time",
+        "English, Urdu & regional languages support",
+      ],
+      highlighted: true,
+    },
+    {
+      name: "Enterprise",
+      price: "Custom",
+      period: "",
+      description: "Tailored for law firms & organizations",
+      features: [
+        "Unlimited team queries",
+        "Research version for legal teams",
+        "Lawyer & firm promotion tools",
+        "Custom data integrations",
+        "Legal insights dashboard",
+        "Dedicated support & onboarding",
+      ],
+      highlighted: false,
+    },
   ];
 
   return (
@@ -82,7 +82,7 @@ export default function Pricing({ forwardedRef }) {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className={`translate-y-10 space-y-6 overflow-hidden rounded-lg border-2 p-8 opacity-0 transition-all duration-300 hover:shadow-xl ${
+              className={`translate-y-10 space-y-6 overflow-hidden rounded-lg border-2 p-8 opacity-0 transition-all duration-300 ${
                 plan.highlighted
                   ? "scale-105 border-secondary-600 bg-secondary-600 text-primary-200 shadow-lg hover:border-primary-200"
                   : "border-transparent bg-primary-200 hover:border-secondary-600"

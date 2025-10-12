@@ -217,7 +217,7 @@ export default function NavBar({ sectionRefs = [] }) {
               style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
             >
               <span className="relative w-fit">
-                <span>Join Waitlist</span>
+                <span className="group-hover:text-black">Join Waitlist</span>
               </span>
             </a>
           </nav>
@@ -267,7 +267,7 @@ export default function NavBar({ sectionRefs = [] }) {
             style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
           >
             <span className="relative w-fit">
-              <span>Join Waitlist</span>
+              <span className="group-hover:text-black">Join Waitlist</span>
             </span>
           </a>
         </nav>
