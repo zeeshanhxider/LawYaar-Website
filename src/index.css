@@ -165,6 +165,12 @@
     text-align: center !important;
   }
 
+  /* Keep Associates page hero section centered in RTL */
+  [dir="rtl"] section h1.font-serif,
+  [dir="rtl"] section h1.font-serif + p {
+    text-align: center !important;
+  }
+
   /* Prevent icon rotation in RTL (we want them to move position, not flip) */
   [dir="rtl"] svg,
   [dir="rtl"] img {
