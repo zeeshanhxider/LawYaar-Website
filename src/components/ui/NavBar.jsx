@@ -4,6 +4,7 @@ import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavBarSVG from "./NavbarSVG";
 import { Squash as Hamburger } from "hamburger-react";
+import lawyaarLogo from "../../assets/logo/lawyaar_logo.png";
 
 export default function NavBar({ sectionRefs = [] }) {
   const navBar = useRef(null);
@@ -139,7 +140,8 @@ export default function NavBar({ sectionRefs = [] }) {
             className="z-50"
             onClick={(e) => handleSmoothScroll(e, "#hero")}
           >
-            <h1 className="font flex items-center text-lg font-semibold">
+            <h1 className="font flex items-center gap-2 text-lg font-semibold">
+              <img src={lawyaarLogo} alt="LawYaar Logo" className="h-8 w-8" />
               LawYaar
             </h1>
           </a>
@@ -169,7 +171,8 @@ export default function NavBar({ sectionRefs = [] }) {
             className="z-50"
             onClick={(e) => handleSmoothScroll(e, "#hero")}
           >
-            <h1 className="font flex items-center text-lg font-semibold">
+            <h1 className="font flex items-center gap-2 text-lg font-semibold">
+              <img src={lawyaarLogo} alt="LawYaar Logo" className="h-8 w-8" />
               LawYaar
             </h1>
           </a>
