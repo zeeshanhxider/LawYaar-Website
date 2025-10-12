@@ -39,8 +39,8 @@ export default function NavBar({ sectionRefs = [] }) {
   useEffect(() => {
     tl.to(navBar.current, {
       y: 0,
-      duration: 3,
-      delay: 0.5,
+      duration: 1,
+      delay: 0.2,
       ease: "power4.inOut",
     });
   }, []);

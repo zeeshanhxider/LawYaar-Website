@@ -18,18 +18,24 @@ export default function Solution() {
         .timeline()
         .to(
           heading.current,
-          { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 },
+          { opacity: 1, y: 0, ease: "power3.out", duration: 0.6 },
           0
         )
         .to(
           body.current,
-          { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 },
-          0.2
+          { opacity: 1, y: 0, ease: "power3.out", duration: 0.6 },
+          0.1
         )
         .to(
           cardsRef.current,
-          { opacity: 1, y: 0, ease: "power4.out", duration: 1, stagger: 0.15 },
-          0.4
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power3.out",
+            duration: 0.5,
+            stagger: 0.08,
+          },
+          0.2
         ),
 
       toggleActions: "play none none none",

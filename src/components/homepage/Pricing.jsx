@@ -14,9 +14,9 @@ export default function Pricing({ forwardedRef }) {
       animation: gsap.to(cardsRef.current, {
         opacity: 1,
         y: 0,
-        ease: "power4.out",
-        duration: 1,
-        stagger: 0.2,
+        ease: "power3.out",
+        duration: 0.5,
+        stagger: 0.1,
       }),
       toggleActions: "play none none none",
     });

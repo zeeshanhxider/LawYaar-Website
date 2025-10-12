@@ -61,20 +61,15 @@ export default function Hero() {
             LawYaar is Pakistan's first AI-powered legal assistant on WhatsApp.
             It helps you understand your rights — from inheritance to tenancy —
             with verified answers backed by real laws and Supreme Court
-            judgments.
-          </p>
-          <p
-            ref={(el) => (mobileTitles.current[2] = el)}
-            className="mt-3 text-center text-[3.5vw] font-medium"
-          >
-            Chat in Urdu or English, anytime, anywhere.
+            judgments. Just text or send a voice note in Urdu or English,
+            anytime.
           </p>
         </div>
 
         {/* Illustration - Bottom */}
-        <div className="mt-6 w-full max-w-sm">
+        <div className="-mt-4 w-full max-w-sm">
           <img
-            ref={(el) => (mobileTitles.current[3] = el)}
+            ref={(el) => (mobileTitles.current[2] = el)}
             src={lawFirmIllustration}
             alt="Law Firm Illustration"
             className="h-auto w-full"
