@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate, useLocation } from "react-router-dom";
 import NavBarSVG from "./NavbarSVG";
 import { Squash as Hamburger } from "hamburger-react";
 import lawyaarLogo from "../../assets/logo/lawyaar_logo.png";
@@ -13,6 +14,8 @@ export default function NavBar({ sectionRefs = [] }) {
   const hamburgerRef = useRef(null);
   const lenisRef = useRef(null); // Store Lenis instance
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   const tl = gsap.timeline();
   gsap.registerPlugin(ScrollTrigger);
 
@@ -70,6 +73,12 @@ export default function NavBar({ sectionRefs = [] }) {
 
     if (isMenuOpen) {
       setIsMenuOpen(false);
+    }
+
+    // If not on home page, navigate to home page with hash
+    if (location.pathname !== "/") {
+      navigate("/" + targetId);
+      return;
     }
 
     const targetElement = document.querySelector(targetId);
@@ -208,6 +217,13 @@ export default function NavBar({ sectionRefs = [] }) {
               <span>Pricing</span>
               <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
             </a>
+            <button
+              onClick={() => navigate("/associates")}
+              className="group relative hidden md:inline-block"
+            >
+              <span>For Law Firms</span>
+              <span className="absolute bottom-0 left-0 h-[0.125em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
+            </button>
             <a
               ref={cta}
               className="button group relative mt-10 min-w-0 border border-transparent px-4 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
@@ -258,6 +274,9 @@ export default function NavBar({ sectionRefs = [] }) {
           >
             <span>Pricing</span>
           </a>
+          <button onClick={() => navigate("/associates")} className="hb-text">
+            <span>For Law Firms</span>
+          </button>
           <a
             className="button group relative mt-4 min-w-0 border border-transparent px-5 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
             href="#contact"

@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
-import lawFirmIllustration from "../../assets/illustrations/law-firm.png";
+import lawFirmIllustration from "../../assets/illustrations/lawyer.png";
 
 export default function Hero() {
   const illustration = useRef(null);
@@ -67,7 +67,7 @@ export default function Hero() {
         </div>
 
         {/* Illustration - Bottom */}
-        <div className="-mt-4 w-full max-w-sm">
+        <div className="-mt-4 w-full max-w-xs">
           <img
             ref={(el) => (mobileTitles.current[2] = el)}
             src={lawFirmIllustration}
@@ -107,7 +107,7 @@ export default function Hero() {
             ref={illustration}
             src={lawFirmIllustration}
             alt="Law Firm Illustration"
-            className="h-auto w-full max-w-xl"
+            className="h-auto w-full max-w-md"
             onError={(e) => console.error("Image failed to load:", e)}
           />
         </div>

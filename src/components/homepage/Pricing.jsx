@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
 import Heading from "../ui/Heading";
 import { Icon } from "@iconify/react";
 
 export default function Pricing({ forwardedRef }) {
   const cardsRef = useRef([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     ScrollTrigger.create({
@@ -145,6 +147,20 @@ export default function Pricing({ forwardedRef }) {
                   </li>
                 ))}
               </ul>
+
+              {plan.name === "Enterprise" && (
+                <button
+                  onClick={() => navigate("/associates")}
+                  className="button group mx-auto mt-6 block w-fit border border-transparent px-6 py-1.5 duration-200 hover:border-accent-400 hover:bg-transparent"
+                  style={{ backgroundColor: "#5E862B", color: "#F2F2F2" }}
+                >
+                  <span className="relative w-fit">
+                    <span className="group-hover:text-accent-400">
+                      Learn More
+                    </span>
+                  </span>
+                </button>
+              )}
             </div>
           ))}
         </div>
