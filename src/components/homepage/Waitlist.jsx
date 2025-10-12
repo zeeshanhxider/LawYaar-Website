@@ -169,8 +169,8 @@ export default function Waitlist() {
               </span>
             </button>
             {success && (
-              <div className="mt-4 font-semibold text-green-600">
-                Welcome to the waitlist! We'll contact you soon on WhatsApp.
+              <div className="mt-8 font-semibold" style={{ color: "#5E862B" }}>
+                Thank you for joining the waitlist! We'll contact you soon on WhatsApp.
               </div>
             )}
           </form>
