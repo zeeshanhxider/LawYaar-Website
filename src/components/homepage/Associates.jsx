@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,6 +17,7 @@ export default function Associates() {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const offerBoxesRef = useRef([]);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -33,6 +34,12 @@ export default function Associates() {
       const headings = heading.querySelectorAll(".heading");
 
       headings.forEach((individualHeading) => {
+        // Set initial state before creating ScrollTrigger
+        gsap.set(individualHeading, {
+          opacity: 0,
+          y: 224, // equivalent to translate-y-56 (56 * 4 = 224px)
+        });
+
         const trigger = ScrollTrigger.create({
           trigger: heading,
           start: "top 550px",
@@ -48,6 +55,36 @@ export default function Associates() {
         triggers.push(trigger);
       });
     });
+
+    // Setup animations for offer boxes with a slight delay to ensure DOM is ready
+    setTimeout(() => {
+      offerBoxesRef.current.forEach((box, index) => {
+        if (box) {
+          // Set initial state for each box
+          gsap.set(box, {
+            y: 50,
+            opacity: 0,
+          });
+
+          const boxTrigger = ScrollTrigger.create({
+            trigger: box,
+            start: "top 80%",
+            end: "bottom 20%",
+            animation: gsap.to(box, {
+              y: 0,
+              opacity: 1,
+              duration: 1.2,
+              ease: "power3.out",
+            }),
+            toggleActions: "play none none none",
+          });
+
+          triggers.push(boxTrigger);
+        }
+      });
+
+      ScrollTrigger.refresh();
+    }, 100);
 
     ScrollTrigger.refresh();
 
@@ -131,7 +168,7 @@ export default function Associates() {
       </div>
 
       {/* Law Firm Illustration */}
-      <div className="mx-auto mt-8 mb-16 max-w-xl md:-mt-20 md:max-w-xl">
+      <div className="mx-auto mb-16 mt-8 max-w-xl md:-mt-20 md:max-w-xl">
         <img
           src={lawFirmIllustration}
           alt="Law Firm Partnership"
@@ -145,9 +182,12 @@ export default function Associates() {
         <div>
           <Heading title={t.associates.whatWeOfferHeading} />
 
-          <div className="mt-8 space-y-8">
+          <div className="offer-boxes mt-8 space-y-8">
             {/* Client Referrals */}
-            <div className="rounded-lg bg-primary-200 p-8">
+            <div
+              ref={(el) => (offerBoxesRef.current[0] = el)}
+              className="rounded-lg bg-primary-200 p-8"
+            >
               <div className="mb-3 flex items-center gap-3">
                 <Icon
                   icon="mdi:account-group"
@@ -163,7 +203,10 @@ export default function Associates() {
             </div>
 
             {/* Lawyer & Firm Promotion */}
-            <div className="rounded-lg bg-primary-200 p-8">
+            <div
+              ref={(el) => (offerBoxesRef.current[1] = el)}
+              className="rounded-lg bg-primary-200 p-8"
+            >
               <div className="mb-3 flex items-center gap-3">
                 <Icon
                   icon="mdi:office-building"
@@ -179,7 +222,10 @@ export default function Associates() {
             </div>
 
             {/* Custom Research Access */}
-            <div className="rounded-lg bg-primary-200 p-8">
+            <div
+              ref={(el) => (offerBoxesRef.current[2] = el)}
+              className="rounded-lg bg-primary-200 p-8"
+            >
               <div className="mb-3 flex items-center gap-3">
                 <Icon
                   icon="mdi:magnify"
@@ -218,7 +264,10 @@ export default function Associates() {
             </div>
 
             {/* Custom Integration */}
-            <div className="rounded-lg bg-primary-200 p-8">
+            <div
+              ref={(el) => (offerBoxesRef.current[3] = el)}
+              className="rounded-lg bg-primary-200 p-8"
+            >
               <div className="mb-3 flex items-center gap-3">
                 <Icon icon="mdi:cog" className="text-3xl text-secondary-600" />
                 <h3 className="font-serif text-xl font-bold text-accent-300 md:text-2xl">
@@ -381,7 +430,9 @@ export default function Associates() {
               >
                 <span className="relative w-fit">
                   <span className="group-hover:text-accent-400">
-                    {submitting ? t.associates.sendingButton : t.associates.submitButton}
+                    {submitting
+                      ? t.associates.sendingButton
+                      : t.associates.submitButton}
                   </span>
                 </span>
               </button>
