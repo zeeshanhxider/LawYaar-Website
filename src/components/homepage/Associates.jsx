@@ -129,7 +129,7 @@ export default function Associates() {
 
     setSubmitting(true);
     try {
-      const response = await fetch("https://formspree.io/f/mjkaanle", {
+      const response = await fetch("https://formspree.io/f/xzzjyekv", {
         method: "POST",
         headers: {
           Accept: "application/json",
