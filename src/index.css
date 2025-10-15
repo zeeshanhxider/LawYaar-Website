@@ -47,14 +47,7 @@
     font-style: normal;
   }
 
-  @font-face {
-    font-family: "NotoSansArabic_Condensed-Medium";
-    src: url("./assets/fonts/NotoSansArabic_Condensed-Medium.ttf")
-      format("truetype");
-    font-weight: 400;
-    font-display: swap;
-    font-style: normal;
-  }
+  /* Noto Sans Arabic is now loaded from Google Fonts (see index.html) */
 
   @media (min-width: 768px) {
     * {
@@ -77,7 +70,7 @@
   /* Urdu font override when font-urdu class is applied */
   .font-urdu,
   .font-urdu * {
-    font-family: "NotoSansArabic_Condensed-Medium", sans-serif !important;
+    font-family: "Noto Sans Arabic", sans-serif !important;
   }
 
   /* Better text rendering for Urdu */
